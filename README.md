@@ -98,7 +98,7 @@ Manages the overall system of enclosures and visitors.
   * Displays the enclosures and their animals.
 
 *Include your name on a separate .txt file in the same format:
-  `TeamNumber_StudentName_StudentID.zip`
+  "TutorialNumber_StudentID_StudentName". e.g.: T02_16002222_Ahmed Mohamed
 
 ---
 
