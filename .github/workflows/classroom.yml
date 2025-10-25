@@ -66,8 +66,8 @@ jobs:
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: Mammal Display
-        setup-command: make clean && make
-        command: "./main mammal"
+        setup-command: g++ -std=c++11 -o main main.cpp
+        command: './main | grep -q "Lion (Age: 5" '
         timeout: 10
         max-score: 5
     - name: Bird Display
@@ -75,8 +75,8 @@ jobs:
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: Bird Display
-        setup-command: make
-        command: "./main bird"
+        setup-command: g++ -std=c++11 -o main main.cpp
+        command: './main | grep -q "Parrot (Age: 2"'
         timeout: 10
         max-score: 5
     - name: Reptile Display
@@ -84,8 +84,17 @@ jobs:
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: Reptile Display
-        setup-command: make
-        command: "./main reptile"
+        setup-command: g++ -std=c++11 -o main main.cpp
+        command: './main | grep -q "Snake (Age: 3" '
+        timeout: 10
+        max-score: 5
+    - name: Enclosure Add Animal
+      id: enclosure-add-animal
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Enclosure Add Animal
+        setup-command: g++ -std=c++11 main.cpp -o main
+        command: "./main"
         timeout: 10
         max-score: 5
     - name: Autograding Reporter
@@ -99,5 +108,6 @@ jobs:
         MAMMAL-DISPLAY_RESULTS: "${{steps.mammal-display.outputs.result}}"
         BIRD-DISPLAY_RESULTS: "${{steps.bird-display.outputs.result}}"
         REPTILE-DISPLAY_RESULTS: "${{steps.reptile-display.outputs.result}}"
+        ENCLOSURE-ADD-ANIMAL_RESULTS: "${{steps.enclosure-add-animal.outputs.result}}"
       with:
-        runners: destructor-declaration,implementation-file-check,private-members-check,all-classes-declared,constructor-declaration,mammal-display,bird-display,reptile-display
+        runners: destructor-declaration,implementation-file-check,private-members-check,all-classes-declared,constructor-declaration,mammal-display,bird-display,reptile-display,enclosure-add-animal
