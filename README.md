@@ -11,8 +11,7 @@ In-lab assignment 01
 
 ## General Description:
 
-In this project, you are tasked with implementing a simple **Zoo Management System** as a console application. The system simulates animals in a zoo, their enclosures, and visitor details. The purpose of this milestone is to practice **Object-Oriented Programming (OOP)** concepts such as **classes, inheritance, encapsulation, constructors, destructors, dynamic memory allocation, and separation of interface/implementation using header and source files**.
-
+In this project, you are tasked with implementing a simple **Zoo Management System** as a console application. The system simulates animals in a zoo, their enclosures, and visitor details. The purpose of this milestone is to practice **Object-Oriented Programming (OOP)** concepts.
 This assignment focuses on the **structure of the system**. Full functionality (feeding schedules, visitor-animal interactions, and ticketing system) will be implemented in **In-lab assignment 02**.
 
 ---
@@ -74,17 +73,6 @@ Represents a visitor to the zoo.
 
 ---
 
-### d) **Zoo Class**
-
-Manages the overall system of enclosures and visitors.
-
-* **Methods**:
-
-  * `initializeZoo()`: Creates enclosures and populates them with animals dynamically.
-  * `showZooStatus()`: Displays all enclosures and their animals.
-
----
-
 ## Deliverables
 
 * A **header file** for each of the above classes.
@@ -93,9 +81,13 @@ Manages the overall system of enclosures and visitors.
 
 * A `main()` function that:
 
-  * Initializes the zoo.
-  * Adds animals to at least one enclosure.
-  * Displays the enclosures and their animals.
+  * Dynamically creates at least one Enclosure.
+
+  * Dynamically creates and adds different types of animals (e.g., a Mammal, Bird, and Reptile) to the Enclosure using pointers.
+
+  * Dynamically creates a Visitor object with their name and number of tickets bought.
+
+  * Displays all enclosure information and visitor details in the same format shown in the console output example below.
 
 *Include your name on a separate .txt file in the same format:
   "TutorialNumber_StudentID_StudentName". e.g.: T02_16002222_Ahmed Mohamed
@@ -113,14 +105,9 @@ Manages the overall system of enclosures and visitors.
   * A **parameterized constructor**
   * A **destructor** (even if empty)
 * Arrays and objects must be **dynamically allocated**.
-* Additional functionality (feeding schedule, interactions, ticketing) will be introduced in ****In-lab assignment 02****.
-
 ---
 
 ## Example Console Output (for In-lab assignment 1 testing)
-
-```
-Zoo initialized successfully.
 
 Enclosure 1 Animals:
 - Lion (Age: 5, Hungry)
