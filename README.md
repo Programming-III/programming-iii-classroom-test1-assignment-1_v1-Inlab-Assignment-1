@@ -81,13 +81,13 @@ Represents a visitor to the zoo.
 
 * A `main()` function that:
 
-  * Dynamically creates at least one Enclosure.
+  * Create at least one Enclosure.
 
-  * Dynamically creates and adds different types of animals (e.g., a Mammal, Bird, and Reptile) to the Enclosure using pointers.
+  * Create and add different types of animals (e.g., a Mammal, Bird, and Reptile) to the Enclosure using pointers.
 
-  * Dynamically creates a Visitor object with their name and number of tickets bought.
+  * Create a Visitor object with their name and number of tickets bought.
 
-  * Displays all enclosure information and visitor details in the same format shown in the console output example below.
+  * Displays all enclosure information and visitor details in the same format **exactly** shown in the console output example below.
 
 *Include your name on a separate .txt file in the same format:
   "TutorialNumber_StudentID_StudentName". e.g.: T02_16002222_Ahmed Mohamed
@@ -107,15 +107,15 @@ Represents a visitor to the zoo.
 * Arrays and objects must be **dynamically allocated**.
 ---
 
-## Example Console Output (for In-lab assignment 1 testing)
+## Console Output (for In-lab assignment 1 testing)
 
 Enclosure 1 Animals:
 - Lion (Age: 5, Hungry)
 - Parrot (Age: 2, Not Hungry)
 - Snake (Age: 3, Venomous, Hungry)
 
-Visitor Info:
-Name: Sarah Ali
+Visitor Info:  
+Name: Sarah Ali  
 Tickets Bought: 3
 ```
----
+
