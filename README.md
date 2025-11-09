@@ -1,4 +1,4 @@
-# Inlab-Assignment-1
+# Programming III – Assignment 01: Zoo Management System
 The German International University
 Faculty of Informatics and Computer Science
 
