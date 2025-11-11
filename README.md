@@ -6,8 +6,6 @@ Dr. Nada Sharaf
 
 Programming III, Winter Semester 2025/26
 
-In-lab assignment 01
-
 
 ## General Description:
 
