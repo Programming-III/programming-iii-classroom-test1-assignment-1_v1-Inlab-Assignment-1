@@ -7,26 +7,6 @@
 #include <iostream>
 using namespace std;
 
-// TODO: Implement all class methods here
-
-// ============== ANIMAL CLASS IMPLEMENTATION ==============
-
-
-// ============== MAMMAL CLASS IMPLEMENTATION ==============
-
-
-// ============== BIRD CLASS IMPLEMENTATION ==============
-
-
-// ============== REPTILE CLASS IMPLEMENTATION ==============
-
-
-// ============== ENCLOSURE CLASS IMPLEMENTATION ==============
-
-
-// ============== VISITOR CLASS IMPLEMENTATION ==============
-
-
 
 // ============== MAIN FUNCTION ==============
 int main() {
