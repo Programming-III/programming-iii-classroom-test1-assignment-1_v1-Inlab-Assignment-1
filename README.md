@@ -71,7 +71,7 @@ Represents a visitor to the zoo.
 
 ---
 
-## d) **Main Source File (main.cpp)**
+## d) **Source File (main.cpp)**
 
 Should consists of:  
 
