@@ -114,7 +114,7 @@ Tickets Bought: 3
 
 * A **header file** for each of the above classes.
 
-* A single **source file (.cpp)** containing all the implementations.
+* A single **source file (.cpp)** containing all the implementations and the main() function.
 
 * Include your name on a separate .txt file in the same format:
   **"TutorialNumber_StudentID_StudentName"**. e.g.: T02_16002222_Ahmed Mohamed
