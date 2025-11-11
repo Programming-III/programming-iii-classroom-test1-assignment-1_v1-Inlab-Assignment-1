@@ -9,7 +9,7 @@ Programming III, Winter Semester 2025/26
 
 ## General Description:
 
-In this project, you are tasked with implementing a simple **Zoo Management System** as a console application. The system simulates animals in a zoo, their enclosures, and visitor details. The purpose of this milestone is to practice **Object-Oriented Programming (OOP)** concepts.
+In this project, you are tasked with implementing a simple **Zoo Management System** as a console application. The system simulates animals in a zoo, their enclosures, and visitor details. The purpose of this milestone is to practice some **Object-Oriented Programming (OOP)** concepts.
 This assignment focuses on the **structure of the system**. Full functionality (feeding schedules, visitor-animal interactions, and ticketing system) will be implemented in **In-lab assignment 02**.
 
 ---
@@ -29,7 +29,7 @@ Represents a generic animal in the zoo. This class will serve as the **base clas
 * **Methods**:
 
   * `void display()`: Displays the animal’s name, age, and hunger status.
-  * `feed()`
+  * `bool feed()`: 
 
 * **Subclasses** (inherit from `Animal`):
 
