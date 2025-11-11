@@ -88,7 +88,7 @@ Should consists of:
 
 * **Cheating = 0 in the assignment.**
 * **AI-generated code = 0 in the project.**
-* All attributes in classes must be **private** with **setters and getters**.
+* All attributes in classes must be **private** with **setters and getters** (if needed).
 * Each class must have:
 
   * A **default constructor**
