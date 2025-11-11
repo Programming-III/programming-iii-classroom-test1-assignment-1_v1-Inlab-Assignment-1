@@ -1,6 +1,6 @@
 name: Autograding Tests
 'on':
-- push
+- workflow_dispatch
 - repository_dispatch
 permissions:
   checks: write
@@ -13,54 +13,63 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: Destructor declaration
+    - name: Destructor Declaration
       id: destructor-declaration
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: Destructor declaration
-        setup-command: ''
-        command: 'grep -c ''~'' *.h | awk -F: ''{sum += $2} END {if(sum >= 7) print
-          "PASS"; else print "FAIL"}'''
+        test-name: Destructor Declaration
+        setup-command: g++ -std=c++11 -o main main.cpp
+        command: found=0; for class in Person Student Instructor Course; do [ -f "${class}.h"
+          ] && grep -q "~${class}" "${class}.h" && found=$((found+1)); done; case
+          $found in 0) echo "0.00" ;; 1) echo "1.00" ;; 2) echo "2.00" ;; 3) echo
+          "3.00" ;; 4) echo "4.00" ;; 5) echo "5.00" ;; 6) echo "6.00" ;;esac
         timeout: 10
-        max-score: 5
-    - name: Implementation file check
+        max-score: 6
+    - name: Implementation File Check
       id: implementation-file-check
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: Implementation file check
-        setup-command: ''
+        test-name: Implementation File Check
+        setup-command: g++ -std=c++11 -o main main.cpp
         command: find . -maxdepth 1 -name '*.cpp' | wc -l
         timeout: 10
-        max-score: 5
-    - name: Private members check
+        max-score: 2
+    - name: Private Members Check
       id: private-members-check
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: Private members check
-        setup-command: ''
-        command: 'grep -c ''private:'' *.h 2>/dev/null | awk -F: ''{sum += $2} END
-          {print sum}'''
+        test-name: Private Members Check
+        setup-command: g++ -std=c++11 -o main main.cpp
+        command: found=0; for class in Animal Mammal Reptile Bird Enclosure Visitor;
+          do [ -f "${class}.h" ] || continue; private_section=$(sed -n '/private:/,/public:\|protected:\|^}/p'
+          "${class}.h"); attr_count=$(echo "$private_section" | grep -E '^\s+\w+.*\w+\s*;'
+          | grep -v '(' | wc -l); [ "$attr_count" -ge 1 ] && found=$((found+1)); done;
+          case $found in 0) echo "0.00" ;; 1) echo "1.00" ;; 2) echo "2.00" ;; 3)
+          echo "3.00" ;; 4) echo "5.00" 6) echo "6.00" ;; esac
         timeout: 10
-        max-score: 5
-    - name: All classes declared
+        max-score: 6
+    - name: All Classes Declared
       id: all-classes-declared
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: All classes declared
-        setup-command: ''
+        test-name: All Classes Declared
+        setup-command: g++ -std=c++11 -o main main.cpp
         command: 'grep -c ''^class '' *.h | awk -F: ''{sum += $2} END {print sum}'''
         timeout: 10
         max-score: 5
-    - name: Constructor declaration
+    - name: Constructor Declaration
       id: constructor-declaration
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: Constructor declaration
+        test-name: Constructor Declaration
         setup-command: ''
-        command: grep -E '(Animal|Mammal|Bird|Reptile|Enclosure|Visitor|Zoo)\\(\\);'
-          *.h >/dev/null 2>&1 && echo 'PASS' || echo 'FAIL'
+        command: found=0; for class in Animal Mammal Reptile Bird Enclosure Visitor;
+          do [ -f "${class}.h" ] && grep -qE "^\s*${class}\s*\(" "${class}.h" && found=$((found+1));
+          done; case $found in 0) echo "0.00" ;; 1) echo "1.00" ;; 2) echo "2.00"
+          ;; 3) echo "3.00" ;; 4) echo "4.00" ;; 5) echo "5.00" ;; 6) echo "6.00"
+          ;;esac
         timeout: 10
-        max-score: 5
+        max-score: 6
     - name: Mammal Display
       id: mammal-display
       uses: classroom-resources/autograding-command-grader@v1
@@ -103,7 +112,38 @@ jobs:
       with:
         test-name: Visitor Display
         setup-command: g++ -std=c++11 -o main main.cpp
-        command: './main | grep -q "Visitor Info: '
+        command: './main | grep "Visitor Info:" && ./main | grep "Name: Sarah Ali"
+          && ./main | grep "Tickets Bought: 3"'
+        timeout: 10
+        max-score: 5
+    - name: Mammal Inherits Animal
+      id: mammal-inherits-animal
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Mammal Inherits Animal
+        setup-command: g++ -std=c++11 -o main main.cpp
+        command: grep -qE "class\s+Mammal\s*:\s*(public|protected|private)\s+Animal"
+          "Mammal.h" && echo "5.00" || echo "0.00"
+        timeout: 10
+        max-score: 5
+    - name: Reptile Inherits Animal
+      id: reptile-inherits-animal
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Reptile Inherits Animal
+        setup-command: g++ -std=c++11 -o main main.cpp
+        command: grep -qE "class\s+Reptile\s*:\s*(public|protected|private)\s+Animal"
+          "Reptile.h" && echo "5.00" || echo "0.00"
+        timeout: 10
+        max-score: 5
+    - name: Bird Inherits Animal
+      id: bird-inherits-animal
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Bird Inherits Animal
+        setup-command: g++ -std=c++11 -o main main.cpp
+        command: grep -qE "class\s+Bird\s*:\s*(public|protected|private)\s+Animal"
+          "Bird.h" && echo "5.00" || echo "0.00"
         timeout: 10
         max-score: 5
     - name: Autograding Reporter
@@ -119,5 +159,8 @@ jobs:
         REPTILE-DISPLAY_RESULTS: "${{steps.reptile-display.outputs.result}}"
         ENCLOSURE-ADD-ANIMAL_RESULTS: "${{steps.enclosure-add-animal.outputs.result}}"
         VISITOR-DISPLAY_RESULTS: "${{steps.visitor-display.outputs.result}}"
+        MAMMAL-INHERITS-ANIMAL_RESULTS: "${{steps.mammal-inherits-animal.outputs.result}}"
+        REPTILE-INHERITS-ANIMAL_RESULTS: "${{steps.reptile-inherits-animal.outputs.result}}"
+        BIRD-INHERITS-ANIMAL_RESULTS: "${{steps.bird-inherits-animal.outputs.result}}"
       with:
-        runners: destructor-declaration,implementation-file-check,private-members-check,all-classes-declared,constructor-declaration,mammal-display,bird-display,reptile-display,enclosure-add-animal,visitor-display
+        runners: destructor-declaration,implementation-file-check,private-members-check,all-classes-declared,constructor-declaration,mammal-display,bird-display,reptile-display,enclosure-add-animal,visitor-display,mammal-inherits-animal,reptile-inherits-animal,bird-inherits-animal
