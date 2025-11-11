@@ -30,7 +30,7 @@ Represents a generic animal in the zoo. This class will serve as the **base clas
 
 * **Methods**:
 
-  * `display()`: Displays the animal’s name, age, and hunger status.
+  * `void display()`: Displays the animal’s name, age, and hunger status.
   * `feed()`
 
 * **Subclasses** (inherit from `Animal`):
@@ -53,8 +53,8 @@ Represents an enclosure that contains multiple animals.
 
 * **Methods**:
 
-  * `addAnimal(Animal* a)`: Adds an animal dynamically to the enclosure.
-  * `displayAnimals()`: Displays all animals inside the enclosure.
+  * `void addAnimal(Animal* a)`: Adds an animal dynamically to the enclosure.
+  * `void displayAnimals()`: Displays all animals inside the enclosure.
 
 ---
 
@@ -69,28 +69,20 @@ Represents a visitor to the zoo.
 
 * **Methods**:
 
-  * `displayInfo()`: Displays visitor details.
+  * `void displayInfo()`: Displays visitor details.
 
 ---
 
-## Deliverables
+## d) **Main Source File (main.cpp)**
 
-* A **header file** for each of the above classes.
+Should consists of:  
 
-* A single **source file (.cpp)** containing all the implementations.
-
-* A `main()` function that:
-
-  * Create at least one Enclosure.
-
-  * Create and add different types of animals (e.g., a Mammal, Bird, and Reptile) to the Enclosure using pointers.
-
-  * Create a Visitor object with their name and number of tickets bought.
-
-  * Displays all enclosure information and visitor details in the same format **exactly** shown in the console output example below.
-
-*Include your name on a separate .txt file in the same format:
-  "TutorialNumber_StudentID_StudentName". e.g.: T02_16002222_Ahmed Mohamed
+  * Member methods implementation for every class. 
+  * main() function that: 
+  - Creates at least one Enclosure. 
+  - Creates and adds 3 different types of animals (Mammal, Bird, and Reptile) to the Enclosure using **pointers**. 
+  - Create a Visitor object with their name and number of tickets bought. 
+  - Displays all enclosure information and visitor details in the same format **exactly** shown in the following console output below **(page 4)**
 
 ---
 
@@ -117,5 +109,16 @@ Enclosure 1 Animals:
 Visitor Info:  
 Name: Sarah Ali  
 Tickets Bought: 3
-```
 
+---
+
+## Deliverables
+
+* A **header file** for each of the above classes.
+
+* A single **source file (.cpp)** containing all the implementations.
+
+*Include your name on a separate .txt file in the same format:
+  "TutorialNumber_StudentID_StudentName". e.g.: T02_16002222_Ahmed Mohamed
+
+---
