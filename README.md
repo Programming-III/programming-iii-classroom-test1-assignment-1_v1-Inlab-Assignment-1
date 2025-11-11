@@ -29,7 +29,7 @@ Represents a generic animal in the zoo. This class will serve as the **base clas
 * **Methods**:
 
   * `void display()`: Displays the animal’s name, age, and hunger status.
-  * `bool feed()`: 
+  * `void feed()`: Tests whether the animal is hungry or not. 
 
 * **Subclasses**:
 
